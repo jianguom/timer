@@ -165,7 +165,7 @@ const frontendCalc = {
 };
 const messages = {
     zh: {
-        upcomingBillsDays: '待付款提醒天数', upcomingBills: '%s日内待付款项', filter: { expired: '已过期 / 今天', w7: '%s天内', w30: '30天内', thisMonth: '本月内', nextMonth: '下月内', halfYear: '半年内', oneYear: '1年内', new: '新服务 (<30天)', stable: '稳定 (1个月-1年)', long: '长期 (>1年)', m1: '最近1个月', m6: '半年内', year: '今年内', earlier: '更早以前' }, viewSwitch: '视图切换', viewProjects: '项目列表', viewSpending: '支出分析', viewCalendar: '日历视图', calToday: '今天', calNoEvents: '当日无到期项目', calWeekdays: ['一','二','三','四','五','六','日'], annualSummary: '年度汇总', monthlyTrend: '月度趋势', noSpendingData: '暂无支出数据', avgMonthly: '月均', billAmount: '账单金额 (按账单周期)', opSpending: '实际支出 (按操作日期)', secPref: '偏好设置', manualRenew: '手动续期', tipToggle: '切换状态', tipRenew: '手动续期', tipEdit: '编辑服务', tipDelete: '删除服务', tipDeleteCh: '删除渠道', secNotify: '通知配置', secData: '数据管理', lblIcsTitle: '日历订阅', lblIcsUrl: '订阅地址 (iOS/Google)', btnCopy: '复制', btnResetToken: '重置令牌', loginTitle: '身份验证', passwordPlaceholder: '请输入访问密钥/Authorization Key', unlockBtn: '解锁终端/UNLOCK', check: '立即检查', add: '新增服务', settings: '系统设置', logs: '运行日志', logout: '安全退出', totalServices: '服务总数', expiringSoon: '即将到期', expiredAlert: '已过期 / 警告', serviceName: '服务名称', type: '类型', nextDue: '下次到期', uptime: '已运行', lastRenew: '上次续期', cyclePeriod: '周期', actions: '操作', cycle: '循环订阅', reset: '到期重置', disabled: '已停用', days: '天', daysUnit: '天', typeReset: '到期重置', typeCycle: '循环订阅', lunarCal: '农历', lbOffline: '离线', unit: { day: '天', week: '周', month: '月', year: '年' }, editService: '编辑服务', editLastRenewHint: '请在「历史记录」中修改', newService: '新增服务', formName: '名称', namePlaceholder: '例如: Netflix', formType: '模式', createDate: '创建时间', interval: '周期时长', note: '备注信息', status: '状态', active: '启用', disabledText: '禁用', cancel: '取消', save: '保存数据', saveSettings: '保存配置', settingsTitle: '系统设置', setNotify: '通知配置', pushSwitch: '推送总开关', pushUrl: 'Webhook 地址', notifyThreshold: '提醒阈值', setAuto: '自动化配置', autoRenewSwitch: '自动续期', autoRenewThreshold: '自动续期阈值', autoDisableThreshold: '自动禁用阈值', daysOverdue: '天后触发', sysLogs: '系统日志', execLogs: '执行记录', clearHistory: '清空历史', noLogs: '无记录', liveLog: '实时终端', btnExport: '导出备份', btnImport: '恢复备份', btnTest: '发送测试', btnRefresh: '刷新日志',
+        upcomingBillsDays: '待付款提醒天数', upcomingBills: '%s日内待付款项', filter: { expired: '已过期 / 今天', w7: '%s天内', w30: '30天内', thisMonth: '本月内', nextMonth: '下月内', halfYear: '半年内', oneYear: '1年内', new: '新服务 (<30天)', stable: '稳定 (1个月-1年)', long: '长期 (>1年)', m1: '最近1个月', m6: '半年内', year: '今年内', earlier: '更早以前' }, viewSwitch: '视图切换', viewProjects: '项目列表', viewSpending: '支出分析', viewCalendar: '日历视图', calToday: '今天', calNoEvents: '当日无到期项目', calWeekdays: ['一','二','三','四','五','六','日'], annualSummary: '年度汇总', monthlyTrend: '月度趋势', noSpendingData: '暂无支出数据', avgMonthly: '月均', billAmount: '账单金额 (按账单周期)', opSpending: '实际支出 (按操作日期)', secPref: '偏好设置', manualRenew: '手动续期', tipToggle: '切换状态', tipRenew: '手动续期', tipEdit: '编辑服务', tipDelete: '删除服务', tipDeleteCh: '删除渠道', secNotify: '通知配置', secData: '数据管理', lblIcsTitle: '日历订阅', lblIcsUrl: '订阅地址 (iOS/Google)', btnCopy: '复制', btnResetToken: '重置令牌', loginTitle: '身份验证', passwordPlaceholder: '请输入访问密钥/Authorization Key', unlockBtn: '解锁终端/UNLOCK', check: '立即检查', add: '新增服务', settings: '系统设置', logs: '运行日志', logout: '安全退出', totalServices: '服务总数', expiringSoon: '即将到期', expiredAlert: '已过期 / 警告', serviceName: '服务名称', type: '类型', nextDue: '下次到期', uptime: '已运行', lastRenew: '上次续期', cyclePeriod: '周期', actions: '操作', cycle: '循环订阅', reset: '到期重置', disabled: '已停用', days: '天', daysUnit: '天', typeReset: '到期重置', typeCycle: '循环订阅', lunarCal: '农历', lbOffline: '离线', unit: { day: '天', week: '周', month: '月', year: '年' }, editService: '编辑服务', editLastRenewHint: '请在「历史记录」中修改', newService: '新增服务', formName: '名称', namePlaceholder: '例如: Netflix', formType: '模式', createDate: '创建时间', interval: '周期时长', note: '服务内容', status: '状态', active: '启用', disabledText: '禁用', cancel: '取消', save: '保存数据', saveSettings: '保存配置', settingsTitle: '系统设置', setNotify: '通知配置', pushSwitch: '推送总开关', pushUrl: 'Webhook 地址', notifyThreshold: '提醒阈值', setAuto: '自动化配置', autoRenewSwitch: '自动续期', autoRenewThreshold: '自动续期阈值', autoDisableThreshold: '自动禁用阈值', daysOverdue: '天后触发', sysLogs: '系统日志', execLogs: '执行记录', clearHistory: '清空历史', noLogs: '无记录', liveLog: '实时终端', btnExport: '导出备份', btnImport: '恢复备份', btnTest: '发送测试', btnRefresh: '刷新日志',
         lblEnable: '启用', lblToken: '令牌 (Token)', lblApiKey: 'API Key', lblChatId: '会话ID',
         lblServer: '服务器URL', lblDevKey: '设备Key', lblFrom: '发件人', lblTo: '收件人', lblUid: '用户ID (UID)', lblSendKey: '发送密钥 (SendKey)', lblSecret: '加签密钥 (Secret)',
         lblTopic: '主题 (Topic)', readOnly: '只读',
@@ -4087,6 +4087,10 @@ const openLink = (url) => { if (url) window.open(url, '_blank'); };
                                 #prefix><el-icon>
                                     <Monitor />
                                 </el-icon></template></el-input></el-form-item>
+                    <el-form-item :label="t('note')"><el-input v-model="form.message" type="textarea"
+                            rows="2"></el-input></el-form-item>
+                    <el-form-item :label="lang === 'zh' ? '小贴士' : 'Tip'"><el-input v-model="form.tip" type="textarea"
+                            rows="3" :placeholder="lang === 'zh' ? '支持 Markdown 格式：**粗体** *斜体* `代码` ~~删除线~~ [链接](url)' : 'Supports Markdown: **bold** *italic* `code` ~~strikethrough~~ [link](url)'"></el-input></el-form-item>
                     <el-form-item :label="t('tags')"><el-select v-model="form.tags" multiple filterable clearable allow-create
                             default-first-option :reserve-keyword="false" :placeholder="t('tagPlaceholder')"
                             style="width:100%" size="large"><el-option v-for="tag in allTags" :key="tag" :label="tag"
@@ -4103,15 +4107,6 @@ const openLink = (url) => { if (url) window.open(url, '_blank'); };
                             </el-option>
                         </el-select>
                     </el-form-item>
-
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <el-form-item :label="t('fixedPrice')" class="!mb-0"><el-input-number v-model="form.fixedPrice"
-                                :min="0" :precision="2" class="!w-full"
-                                controls-position="right"></el-input-number></el-form-item>
-                        <el-form-item :label="t('currency')" class="!mb-0"><el-select v-model="form.currency" filterable
-                                class="!w-full"><el-option v-for="c in currencyList" :key="c" :label="c"
-                                    :value="c"></el-option></el-select></el-form-item>
-                    </div>
 
                     <!-- 第一行：模式标签 + 选择按钮同行 -->
                     <div class="flex items-center gap-3 mb-4">
@@ -4411,10 +4406,15 @@ const openLink = (url) => { if (url) window.open(url, '_blank'); };
                         </div>
                     </div>
 
-                    <el-form-item :label="t('note')"><el-input v-model="form.message" type="textarea"
-                            rows="2"></el-input></el-form-item>
-                    <el-form-item :label="lang === 'zh' ? '小贴士' : 'Tip'"><el-input v-model="form.tip" type="textarea"
-                            rows="3" :placeholder="lang === 'zh' ? '支持 Markdown 格式：**粗体** *斜体* `代码` ~~删除线~~ [链接](url)' : 'Supports Markdown: **bold** *italic* `code` ~~strikethrough~~ [link](url)'"></el-input></el-form-item>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <el-form-item :label="t('fixedPrice')" class="!mb-0"><el-input-number v-model="form.fixedPrice"
+                                :min="0" :precision="2" class="!w-full"
+                                controls-position="right"></el-input-number></el-form-item>
+                        <el-form-item :label="t('currency')" class="!mb-0"><el-select v-model="form.currency" filterable
+                                class="!w-full"><el-option v-for="c in currencyList" :key="c" :label="c"
+                                    :value="c"></el-option></el-select></el-form-item>
+                    </div>
+
                     <el-form-item :label="t('renewUrl')"><el-input v-model="form.renewUrl"
                             :placeholder="t('renewUrlPlaceholder')" clearable></el-input></el-form-item>
                 </el-form>

@@ -3,6 +3,7 @@ name: Build Docker Image
 on:
   push:
     tags: [ "v*.*.*" ]
+    branches: [ master ]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -42,13 +43,9 @@ jobs:
             ${{ env.DOCKER_HUB_USERNAME }}/timer
             ${{ env.REGISTRY_GHCR }}/${{ env.IMAGE_NAME }}
           tags: |
-            # 如果是推送 tag (v1.0.0)，生成 :v1.0.0 标签
             type=ref,event=tag
-            # 如果是推送 tag，生成 :latest 标签
-            type=raw,value=latest,enable=${{ github.ref_type == 'tag' }}
-            # 如果是推送分支，使用分支名作为标签
+            type=raw,value=latest,enable=${{ github.ref_type == 'tag' || github.ref_name == 'master' }}
             type=ref,event=branch
-            # 如果是推送分支，使用短 SHA 作为标签
             type=sha,prefix=
 
       - name: Log in to Docker Hub

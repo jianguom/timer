@@ -6,10 +6,32 @@ compatibility_flags = ["nodejs_compat"]
 [env.production]
 name = "timer"
 
+[env.production.vars]
+AUTH_PASSWORD = "admin"
+
+[env.production.triggers]
+crons = ["0,10,20,30,40,50 * * * *"]
+
+[[env.production.kv_namespaces]]
+binding = "RENEW_KV"
+id = "6523dfe8edc74979803cf4ceeafb88d4"
+preview_id = "6523dfe8edc74979803cf4ceeafb88d4"
+
 [env.staging]
 name = "timer-staging"
 
-# 绑定 KV 数据库
+[env.staging.vars]
+AUTH_PASSWORD = "admin"
+
+[env.staging.triggers]
+crons = ["0,10,20,30,40,50 * * * *"]
+
+[[env.staging.kv_namespaces]]
+binding = "RENEW_KV"
+id = "6523dfe8edc74979803cf4ceeafb88d4"
+preview_id = "6523dfe8edc74979803cf4ceeafb88d4"
+
+# 绑定 KV 数据库（顶层默认环境）
 [[kv_namespaces]]
 binding = "RENEW_KV"
 id = "6523dfe8edc74979803cf4ceeafb88d4"

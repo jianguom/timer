@@ -1574,6 +1574,7 @@ async function checkAndRenew(env, isSched, lang = "zh") {
                 currency: it.currency,
                 renewUrl: it.renewUrl,
                 tip: it.tip,
+                showTimestamp: it.showTimestamp,
             });
             items[i] = it;
             changed = true;
@@ -1709,7 +1710,10 @@ async function checkAndRenew(env, isSched, lang = "zh") {
                         const mm = String(nowM).padStart(2, '0');
                         const timestamp = `${y}年${mo}月${d}日 ${hh}:${mm}`;
                         
-                        let itemBody = `**${x.name}${dayStatus}**\n>${timestamp}`;
+                        let itemBody = `**${x.name}${dayStatus}**`;
+                        if (x.showTimestamp !== false) {
+                            itemBody += `\n>${timestamp}`;
+                        }
                         if (x.message) {
                             itemBody += `\n\n${x.message}`;
                         }

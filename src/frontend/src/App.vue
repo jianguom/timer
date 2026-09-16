@@ -372,7 +372,7 @@ const normalizeNotifyTime = (val) => {
 };
 // 提醒时间选项列表 (00:00~23:50 每10分钟)
 const notifyTimeOptions = Array.from({ length: 144 }, (_, i) => { const h = String(Math.floor(i / 6)).padStart(2, '0'); const m = String((i % 6) * 10).padStart(2, '0'); return `${h}:${m}`; });
-const form = ref({ id: '', name: '', createDate: '', lastRenewDate: '', intervalDays: 30, cycleUnit: 'day', type: 'cycle', message: '', enabled: true, tags: [], useLunar: false, notifyDays: 3, notifyTime: ['08:00'], autoRenew: true, autoRenewDays: 3, fixedPrice: 0, currency: 'CNY', notifyChannelIds: [], renewHistory: [], renewUrl: '', tip: '' });
+const form = ref({ id: '', name: '', createDate: '', lastRenewDate: '', intervalDays: 30, cycleUnit: 'day', type: 'cycle', message: '', enabled: true, tags: [], useLunar: false, notifyDays: 3, notifyTime: ['08:00'], autoRenew: true, autoRenewDays: 3, fixedPrice: 0, currency: 'CNY', notifyChannelIds: [], renewHistory: [], renewUrl: '', tip: '', showTimestamp: true });
 const DEFAULT_CALENDAR_SUBSCRIPTION_ID = 'default';
 const settingsForm = ref({
     notifyUrl: '',
@@ -1903,14 +1903,14 @@ const repeatUpcomingDates = computed(() => {
     } catch(e) { /* 计算异常 */ }
     return null;
 });
-const openAdd = () => { isEdit.value = false; const d = getLocalToday(); form.value = { id: Date.now().toString(), name: '', createDate: d, lastRenewDate: d, intervalDays: 30, cycleUnit: 'day', type: 'cycle', enabled: true, tags: [], useLunar: false, notifyDays: 3, notifyTime: ['08:00'], autoRenew: true, autoRenewDays: 3, fixedPrice: 0, currency: settings.value.defaultCurrency || 'CNY', notifyChannelIds: [], renewHistory: [], renewUrl: '', repeat: { freq: 'monthly', interval: 1, bymonth: [], bymonthday: [], byweekday: [], bysetpos: null, bycycleday: [] } }; dialogVisible.value = true; };
+const openAdd = () => { isEdit.value = false; const d = getLocalToday(); form.value = { id: Date.now().toString(), name: '', createDate: d, lastRenewDate: d, intervalDays: 30, cycleUnit: 'day', type: 'cycle', enabled: true, tags: [], useLunar: false, notifyDays: 3, notifyTime: ['08:00'], autoRenew: true, autoRenewDays: 3, fixedPrice: 0, currency: settings.value.defaultCurrency || 'CNY', notifyChannelIds: [], renewHistory: [], renewUrl: '', showTimestamp: true, repeat: { freq: 'monthly', interval: 1, bymonth: [], bymonthday: [], byweekday: [], bysetpos: null, bycycleday: [] } }; dialogVisible.value = true; };
 const editItem = (row) => { 
     isEdit.value = true; 
     let rObj = row.repeat ? JSON.parse(JSON.stringify(row.repeat)) : { freq: 'monthly', interval: 1, bymonth: [], bymonthday: [], byweekday: [], bysetpos: null, bycycleday: [] };
     if (rObj.bymonthday && Array.isArray(rObj.bymonthday)) rObj.bymonthday = rObj.bymonthday.map(String);
     if (rObj.bysetpos !== null && rObj.bysetpos !== undefined) rObj.bysetpos = String(rObj.bysetpos);
     if (!rObj.bycycleday) rObj.bycycleday = [];
-    form.value = { ...row, cycleUnit: row.cycleUnit || 'day', tags: [...(row.tags || [])], useLunar: !!row.useLunar, notifyDays: (row.notifyDays !== undefined ? row.notifyDays : 3), notifyTime: normalizeNotifyTime(row.notifyTimes || row.notifyTime), autoRenew: row.autoRenew !== false, autoRenewDays: (row.autoRenewDays !== undefined ? row.autoRenewDays : 3), notifyChannelIds: (Array.isArray(row.notifyChannelIds) ? row.notifyChannelIds : []), repeat: rObj }; 
+    form.value = { ...row, cycleUnit: row.cycleUnit || 'day', tags: [...(row.tags || [])], useLunar: !!row.useLunar, notifyDays: (row.notifyDays !== undefined ? row.notifyDays : 3), notifyTime: normalizeNotifyTime(row.notifyTimes || row.notifyTime), autoRenew: row.autoRenew !== false, autoRenewDays: (row.autoRenewDays !== undefined ? row.autoRenewDays : 3), notifyChannelIds: (Array.isArray(row.notifyChannelIds) ? row.notifyChannelIds : []), showTimestamp: row.showTimestamp !== false, repeat: rObj }; 
     dialogVisible.value = true; 
 };
 const openSettings = () => {
@@ -4414,6 +4414,19 @@ const openLink = (url) => { if (url) window.open(url, '_blank'); };
                                 class="!w-full"><el-option v-for="c in currencyList" :key="c" :label="c"
                                     :value="c"></el-option></el-select></el-form-item>
                     </div>
+
+                    <el-form-item class="!mb-4">
+                        <div class="flex items-center justify-between w-full">
+                            <div class="flex items-center gap-1">
+                                <span class="text-sm text-slate-600 dark:text-slate-300">{{ lang === 'zh' ? '通知中显示时间戳' : 'Show timestamp in notification' }}</span>
+                                <el-tooltip :content="lang === 'zh' ? '在通知标题下方显示推送时间（日期+时间）。' : 'Show the push time (date + time) below the notification title.'" placement="top">
+                                    <el-icon class="text-slate-400"><InfoFilled /></el-icon>
+                                </el-tooltip>
+                            </div>
+                            <el-switch v-model="form.showTimestamp"
+                                style="--el-switch-on-color:#2563eb;"></el-switch>
+                        </div>
+                    </el-form-item>
 
                     <el-form-item :label="t('renewUrl')"><el-input v-model="form.renewUrl"
                             :placeholder="t('renewUrlPlaceholder')" clearable></el-input></el-form-item>

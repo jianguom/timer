@@ -1480,6 +1480,7 @@ const fetchList = async (tk) => {
 
         if (settings.value.language) setLang(settings.value.language);
         updatePageTitle();
+        applyCustomBackground();
         isLoggedIn.value = true;
     } catch (e) {
         ElMessage.error(e.message);
@@ -1938,6 +1939,24 @@ const copyBackupKey = async () => {
         ElMessage.success(lang.value === 'zh' ? '已复制到剪贴板' : 'Copied to clipboard');
     } catch { ElMessage.error(lang.value === 'zh' ? '复制失败' : 'Copy failed'); }
 };
+const applyCustomBackground = () => {
+    const url = (settings.value && settings.value.customBackgroundUrl || '').trim();
+    const el = document.body;
+    if (url) {
+        el.style.backgroundImage = `url("${url}")`;
+        el.style.backgroundSize = 'cover';
+        el.style.backgroundPosition = 'center';
+        el.style.backgroundAttachment = 'fixed';
+        el.style.backgroundRepeat = 'no-repeat';
+    } else {
+        el.style.backgroundImage = '';
+        el.style.backgroundSize = '';
+        el.style.backgroundPosition = '';
+        el.style.backgroundAttachment = '';
+        el.style.backgroundRepeat = '';
+    }
+};
+
 const saveSettings = async (close = true) => {
     let preparedSettings;
     try {
@@ -1958,6 +1977,7 @@ const saveSettings = async (close = true) => {
     const oldCurrency = settings.value.defaultCurrency;
     settingsForm.value = preparedSettings;
     settings.value = { ...preparedSettings };
+    applyCustomBackground();
     await saveData(null, settings.value);
     if (close) settingsVisible.value = false;
 
